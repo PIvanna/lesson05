@@ -1,0 +1,15 @@
+<div id="container">
+    <div id="divForWord">
+        <span style="color: black;  font-size: 24px">Bad Words: </span>
+        <span class="" id="listBadWords" [textContent] = "listBadWords"></span>
+    </div>
+    <form id="form">
+        <div id="inputForm">
+            <input [style.borderColor] = 'correct ? "black" : "red"' type="text" name="input" [(ngModel)]="valueInput" id="inputSearch"  [placeholder]="placeholderText" >
+            <button (click)="add($event)"  type="button" id="buttonAdd"  style="background-color: #ffff00d9; color: black;">Add</button>
+            <button (click)="reset($event)"  type="button" id="buttonResest" style="background-color: #ff5d5d; color: white;" [disabled] = "disabled">Reset</button>
+        </div>
+        <textarea [ngClass]="{'correctText': correctTextArea}"  [style.borderColor] = 'correctTextArea ? "black" : "red"' name="textArea" [(ngModel)]="valueTextArea" id="textareaForm" cols="30" rows="10" [placeholder]="placeholderTextArea"></textarea>
+        <button type="button" (click)="cenzor($event)" id="buttonCenzor" >Cenzor</button>
+    </form>
+</div>

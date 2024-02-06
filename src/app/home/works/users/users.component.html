@@ -1,0 +1,31 @@
+<div class="container">
+    <form name="formData" id="formData"> 
+        <p class="nameInput">Login</p>
+        <input id="inputLogin" name="inputLogin" [ngStyle]="{'borderColor': isColorLogin ? 'black' : 'red'}" [(ngModel)]="inputLogin" placeholder="Enter login" type="text">
+        <p class="nameInput">Password</p>
+        <input id="inputPassword" name="inputPassword" [ngStyle]="{'borderColor': isColorPassword ? 'black' : 'red'}" [(ngModel)]="inputPassword" placeholder="Enter password" type="password">
+        <p class="nameInput">Email address</p>
+        <input id="inputEmail" name="inputEmail"  [ngStyle]="{'borderColor': isColorEmail ? 'black' : 'red'}" [(ngModel)]="inputEmail" placeholder="Enter email" type="text">
+        <button id="buttonAdd" *ngIf="!editStatus"  (click)="add()" type="button">Add user</button>
+        <button id="buttonEditForm" *ngIf="editStatus"  (click)="editMain()" type="button">Edit user</button>
+    </form>
+    <div class="table" >
+        <div class="nameTable">
+            <div class="elementTable">#</div>
+            <div class="elementTable">Login</div>
+            <div class="elementTable">Password</div>
+            <div class="elementTable">Email</div>
+            <div class="elementTable">Edit</div>
+            <div class="elementTable">Delete</div>
+        </div>
+        <div class="rowTable" *ngFor="let user of arrPerson; index as i">
+            <div class="elementTable">{{ i + 1 }}</div>
+            <div class="elementTable">{{ user.login }}</div>
+            <div class="elementTable">{{ user.password }}</div>
+            <div class="elementTable">{{ user.email }}</div>
+            <div class="elementTable"><button type = "button" (click)="edit(i)" class="buttonEdit" [ngStyle] = "editSCSS" >EDIT</button></div>
+            <div class="elementTable"><button type = "button" (click)="delete(i)" class="buttonDelete"  [disabled]="editStatus" [ngStyle] = "deleteSCSS">DELETE</button></div>
+        </div>
+    
+    </div>
+</div>

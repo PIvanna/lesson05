@@ -1,0 +1,22 @@
+<div class="table" >
+    <div class="nameTable">
+        <div class="elementTable">#</div>
+        <div class="elementTable">Task</div>
+        <div class="elementTable">Check</div>
+        <div class="elementTable">DONE\IN PROGRESS</div>
+        <div class="elementTable">Edit</div>
+        <div class="elementTable">Delete</div>
+    </div>
+    <div class="rowTable" *ngFor="let user of arrPerson; index as i">
+        <div class="elementTable">{{ i + 1 }}</div>
+        <div class="elementTable">{{ user.task }}</div>
+        <div class="elementTable"><input type="checkbox" [checked]="user.status" name="checkbox"  (change)="onCheckboxChange(user)"></div>
+        <div class="elementTable" [ngStyle]="{'color':  user.status ? 'green' : 'red'}" [textContent]="user.status ? 'DONE' : 'IN PROGRESS'"></div>
+        <div class="elementTable"><button type = "button"(click)="edit(i)"  class="buttonEdit" [ngStyle] = "editSCSS">EDIT</button></div>
+        <div class="elementTable"><button type = "button" (click)="delete(i)" [disabled] = '!user.status' class="buttonDelete" [ngStyle] = "deleteSCSS">DELETE</button></div>
+    </div>
+    <form name="form1" *ngIf="editStatus">
+        <input name="inputText"  [(ngModel)]="myChange" type="text" id="inputChange">
+        <button type="button" id="buttonSave" (click)="saveUser()">Save</button>
+    </form>
+</div>

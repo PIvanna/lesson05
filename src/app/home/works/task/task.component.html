@@ -1,0 +1,9 @@
+<div class="container">
+    <h1 style="font-size: 40px; margin-bottom: 5px;">Plan your day</h1>
+    <h2 style="margin-bottom: 10px;">User: Ivan Ivanov. Count of task: {{ count }}</h2>
+    <form name="form" >
+        <input name="inputText"  [(ngModel)]="myTask" type="text" id="inputText">
+        <button type="button" id="buttonAdd" (click)="addUser()">Add</button>
+    </form>
+    <app-child [userTask]="task" (fromChildCount)='getCount($event)'></app-child>
+</div>  

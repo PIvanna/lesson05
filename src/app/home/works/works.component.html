@@ -1,0 +1,10 @@
+<div class="menu">
+    <div class="lastWorks">
+        <p class="main-p-works">Last works >>></p>
+        <p [routerLink]="['/works/cenzor']" routerLinkActive="route-active" class="works-p">Cenzor</p>
+        <p [routerLink]="['/works/users']" routerLinkActive="route-active" class="works-p">Users</p>
+        <p [routerLink]="['/works/task']" routerLinkActive="route-active" class="works-p">Task</p>
+    </div>
+    <div [routerLink]="[ '' ]" routerLinkActive="route-active" class="back-home">Back >>> home</div>
+</div>
+<router-outlet></router-outlet>
